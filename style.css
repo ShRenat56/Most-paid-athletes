@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.page__main {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 267px 267px 267px 267px 267px;
+  justify-content: center;
+  column-gap: 30px;
+  row-gap: 10px;
+
+  padding: 30px 35px;
+}
+
+@media (min-width: 1000px) {
+  .page__main {
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 267px 267px 267px;
+    padding: 30px 55px 0;
+  }
+}
+
+.person {
+  position: relative;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.person__photo {
+  border-radius: 200px;
+  width: 200px;
+
+  transition: border-radius 1s, transform 1s;
+}
+
+.border {
+  width: 220px;
+  min-height: 287px;
+  border-radius: 10px;
+  position: absolute;
+  background-color: #eee;
+  top: -10px;
+  z-index: -1;
+  opacity: 0;
+
+  transition: border-radius 1s, transform 1s, top 1s;
+}
+
+.person__card {
+  position: relative;
+}
+
+.person__rank {
+  position: absolute;
+  top: 84px;
+  right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border-radius: 50%;
+
+  transition: right 1s;
+}
+
+.person__rank--number {
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 700;
+  color: #8B0000;
+}
+
+.person__details {
+  text-align: center;
+  color: #2F4F4F;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 2;
+
+  position: absolute;
+  top: 208px;
+  transition: top 1s;
+}
+
+.person__extra {
+  /* visibility: hidden; */
+  opacity: 0;
+  padding-top: 9px;
+  color: #000;
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.person:hover {
+  z-index: 2;
+}
+
+.person:hover .border {
+  opacity: 1;
+  top: -3;
+
+  transform: scale(1.2);
+  border-radius: 12px;
+}
+
+.person:hover .person__details {
+  top: 230px;
+}
+
+.person:hover .person__rank {
+  right: -8px;
+}
+
+.person:hover .person__extra {
+  opacity: 1;
+}
+
+.person:hover .person__photo {
+  transform: scale(1.2);
+  border-radius: 60px;
+}
